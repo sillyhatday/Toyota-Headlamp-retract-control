@@ -2,6 +2,7 @@
 
 # Retract control module
 
+<img width="2000" height="1414" alt="download" src="https://github.com/user-attachments/assets/b11a10ef-68cb-43d6-aabc-3a19b8b033d3" />
 ![Toyota-headlight-retraction-controller-top](https://github.com/user-attachments/assets/2dd3dc2b-f4ba-4c22-9c2b-5f1541ec7981)
 ![Toyota-headlight-retraction-controller-bottom](https://github.com/user-attachments/assets/6b88f871-02d0-49ee-bef9-2b23b71a9a64)
 ![Screenshot from 2024-09-22 19-08-42](https://github.com/user-attachments/assets/5956b5cb-4993-48e8-aec4-39a6893e3998)
