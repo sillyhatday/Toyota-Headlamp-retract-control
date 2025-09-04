@@ -12,7 +12,7 @@
 
 ## Basic Operation:
 
-This is only applicable to the MK1a model of AW11. Years 1984-1986.
+This is only applicable to the MR2 years 1984-1986 and Celica 1987-1989.
 
 * When tails lights are switched on with the dashboard knob, the head lamps do not raise up. In this position, the dashboard switch grounds pin 6 on the module connector.
 
