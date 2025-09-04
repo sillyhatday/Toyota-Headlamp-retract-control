@@ -1,6 +1,6 @@
 # Work in progress. Not all information is accurate
 
-# Retract control module
+# Retract control module 85964-17010
 
 <img width="2000" height="1414" alt="download" src="https://github.com/user-attachments/assets/b11a10ef-68cb-43d6-aabc-3a19b8b033d3" />
 <img width="1085" height="926" alt="PCB Top" src="https://github.com/user-attachments/assets/a5387109-9186-4426-9568-327eda5a4a18" />
@@ -10,17 +10,21 @@
 
 ### Basic Operation:
 
-Tail lights on does not raise the head lamps. Tail lamps on grounds pin 6.
-When head lamps are switched on pin 6 & 8 are grounded. This raises the head lamps.
-Switching to head lamp hold position un-grounds pin 8 and ties back to 12v through the headlamp relay coil.
-Swtiching to tail lamps, pin 8 is as above and pin 6 stays grounded. Keeping lamps in the up position.
+This is only applicable to the MK1a model of AW11. Years 1984-1986.
 
-Pin 8 is head lamps up/down request input from “retractor module”
-Pin 6 is head lamps hold position. (disables head lamps down output)
+When tails lights are switched on with the dashboard knob, the head lamps do not raise up. In this position, the dashboard switch grounds pin 6 on the module connector.
+Turning the dashboard switch further to the "head lamp on" position, raises the head lamps and powers the bulbs. The switch grounds pin 6 and 8 on the connector.
+Moving the switch on the dash board to the "hold" position switches off the head lamp bulbs and leaves them in the raised position. The switch releases pin 8 from ground and pin 6 remains grounded, while turning off all lights.
+Going back to head lamps position will switch the bulbs back on. Switching to the tail lamps position will switch the head lamps off again while keeping the head lamps raised. This is because pin 6 is still grounded.
+The head lamps will only go down when pin 6 is released from ground. This is in the off position.
 
-Even though both headlamp actuate at the same time there is a relay for each light. This allows them to move at different speeds and still rest in the same position. If one lamp was in position first, then the other would be stuck in the position it was in when the first got into position.
-The head lamps cannot reverse direction. The motor runs in one direction only. To go back up they must go all the way down first, the same is true for the opposite. This is due to the limit/encoder wheel system used for positioning. It would also lower cost by not implementing a reversing circuit. 
-Pin 7 output is switched on by providing a signal to pin 8 input. This input is controlled by the headlight switch on the dashboard cluster.
+There is no down signal pin. The down command is handled automatically. As soon as the headlamps are fully up, the limit switch for down is triggered and the lamps will go down if pin 6 is not grounded.
+
+Pin 8 is head lamps up/down request input. The is controlled by the head lamp switch on the dash board.
+Pin 6 is head lamps hold position (disables head lamps down output). Also controlled by the head lamp switch.
+
+Even though both headlamp actuate at the same time there is a relay for each light. This allows them to move at different speeds and still rest in the same position. If one lamp was in position first, then the other would be stuck in the position it was in when the first on got into the fully up position.
+The head lamps cannot run in reverse direction. The head lamp motor runs in one direction only. To go down they must go all the way up first, the same is true for the opposite. This is due to the limit/encoder wheel system used.
 
 ### Technical Operation:
 
