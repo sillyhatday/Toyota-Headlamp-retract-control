@@ -13,9 +13,13 @@
 This is only applicable to the MK1a model of AW11. Years 1984-1986.
 
 When tails lights are switched on with the dashboard knob, the head lamps do not raise up. In this position, the dashboard switch grounds pin 6 on the module connector.
+
 Turning the dashboard switch further to the "head lamp on" position, raises the head lamps and powers the bulbs. The switch grounds pin 6 and 8 on the connector.
+
 Moving the switch on the dash board to the "hold" position switches off the head lamp bulbs and leaves them in the raised position. The switch releases pin 8 from ground and pin 6 remains grounded, while turning off all lights.
+
 Going back to head lamps position will switch the bulbs back on. Switching to the tail lamps position will switch the head lamps off again while keeping the head lamps raised. This is because pin 6 is still grounded.
+
 The head lamps will only go down when pin 6 is released from ground. This is in the off position.
 
 There is no down signal pin. The down command is handled automatically. As soon as the headlamps are fully up, the limit switch for down is triggered and the lamps will go down if pin 6 is not grounded.
