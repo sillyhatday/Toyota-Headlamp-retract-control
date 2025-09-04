@@ -8,46 +8,51 @@
 <img width="726" height="939" alt="PCB Layout" src="https://github.com/user-attachments/assets/3b029153-0159-4bb8-8012-5470c0d493a4" />
 <img width="640" height="480" alt="module" src="https://github.com/user-attachments/assets/91b1352e-1e63-438d-b16e-f90134846796" />
 
-### Basic Operation:
+## Basic Operation:
 
 This is only applicable to the MK1a model of AW11. Years 1984-1986.
 
-When tails lights are switched on with the dashboard knob, the head lamps do not raise up. In this position, the dashboard switch grounds pin 6 on the module connector.
+* When tails lights are switched on with the dashboard knob, the head lamps do not raise up. In this position, the dashboard switch grounds pin 6 on the module connector.
 
-Turning the dashboard switch further to the "head lamp on" position, raises the head lamps and powers the bulbs. The switch grounds pin 6 and 8 on the connector.
+* Turning the dashboard switch further to the "head lamp on" position, raises the head lamps and powers the bulbs. The switch grounds pin 6 and 8 on the connector.
 
-Moving the switch on the dash board to the "hold" position switches off the head lamp bulbs and leaves them in the raised position. The switch releases pin 8 from ground and pin 6 remains grounded, while turning off all lights.
+* Moving the switch on the dash board to the "hold" position switches off the head lamp bulbs and leaves them in the raised position. The switch releases pin 8 from ground and pin 6 remains grounded, while turning off all lights.
 
-Going back to head lamps position will switch the bulbs back on. Switching to the tail lamps position will switch the head lamps off again while keeping the head lamps raised. This is because pin 6 is still grounded.
+* Going back to head lamps position will switch the bulbs back on. Switching to the tail lamps position will switch the head lamps off again while keeping the head lamps raised. This is because pin 6 is still grounded.
 
-The head lamps will only go down when pin 6 is released from ground. This is in the off position.
+* The head lamps will only go down when pin 6 is released from ground. This is in the off position.
 
-There is no down signal pin. The down command is handled automatically. As soon as the headlamps are fully up, the limit switch for down is triggered and the lamps will go down if pin 6 is not grounded.
+* There is no down signal pin. The down command is handled automatically. As soon as the headlamps are fully up, the limit switch for down is triggered and the lamps will go down if pin 6 is not grounded.
 
-Pin 8 is head lamps up/down request input. The is controlled by the head lamp switch on the dash board.
-Pin 6 is head lamps hold position (disables head lamps down output). Also controlled by the head lamp switch.
+* Pin 8 is head lamps up/down request input. The is controlled by the head lamp switch on the dash board.
+
+* Pin 6 is head lamps hold position (disables head lamps down output). Also controlled by the head lamp switch.
 
 Even though both headlamp actuate at the same time there is a relay for each light. This allows them to move at different speeds and still rest in the same position. If one lamp was in position first, then the other would be stuck in the position it was in when the first on got into the fully up position.
 The head lamps cannot run in reverse direction. The head lamp motor runs in one direction only. To go down they must go all the way up first, the same is true for the opposite. This is due to the limit/encoder wheel system used.
 
-### Technical Operation:
+## Technical Operation:
 
-D2 is a reverse bias diode for polarity protection. Should the car battery be connected backwards, D2 provides a short circuit to break the 7.5A fuse and prevent any damage.
+* D2 is a reverse bias diode for polarity protection. Should the car battery be connected backwards, D2 provides a short circuit to break the 7.5A fuse and prevent any damage to the module.
 
-Q2 serves a dual purpose function, a clever use of components to keep costs down. When either the pin 7 output is activated (pulled to ground) or the pin 6 input is grounded by the head light switch, the headlamp down circuit is disabled.
-This makes sure that pin 11 output cannot be enabled while pin 7 output is enabled. Should somehow both outputs be enabled at the same time, pin 7 output always overrides pin 11. In other words, should the lamps be going down and there is an up signal given, they will immediately go back up after going all the way down.
+* Q2 serves a dual purpose function, a clever use of components to keep costs down. When either, the pin 7 output is activated, or the pin 6 input is grounded by the head light switch, the head lamp down circuit is disabled.
+This makes sure that out on pin 11 cannot be enabled while the output pin 7 is enabled. Should somehow both outputs be enabled at the same time, pin 7 output always overrides pin 11. In other words, should the head lamps currently be going down, and there is an up signal given, the head lamp motor will continue bringing the had lamps into the down position, then the motor will not stop and bring the head lamps into the fully up position.
 
-Each PNP transistor base (Q1, Q2,Q3) is tied loosely to the main 12v rail (pin 10) through a 4.3K resistor. Each one also has a 47nF disc capacitor between the same points for noise suppression and stability.
-This should prevent unwanted actuation due to supply voltage fluctuations. These transistors act as a “pre-amp” to drive the base of each NPN transistor firmly.
+* Each PNP transistor base (Q1, Q2, Q3) is tied loosely to 12v (pin 10) through a 4.3K resistor. Each PNP transistor also has a 47nF disc capacitor between the base and ground for noise suppression and stability.
+This will filter out micro second voltage spikes on the 12v system from things like the iginition coil. These transistors act as a “pre-amp” to drive the base of the NPN transistors firmly.
 
-The two NPN transistors (Q4, Q5) are what directly control the relay coils by grounding A2. One transistor controls both relays. There are two NPN transistors, one for controlling lamps up actuation and one for down. Q4 is for lamp down actuation and Q5 for up.
+* The two NPN transistors (Q4, Q5) are what directly control the relay the provide power to the head lamp motors. There are two NPN transistors, one for controlling lamps up actuation and one for down. One transistor controls both relays, the head lamp up transistor Q5 will switch on both relays, then the down transistor Q4 will also power both relays in turn.
 
-Each relay has a flyback diode for back EMF protection (D5, D6). The relays control the retraction motors directly. The motors are grounded local to them and the power wire is switched through the relays.
-When in the resting state, the NC contacts of the relays keep the motor power cable grounded through pin 12. The coils are activated by the output pins 7 and 11 via the limit/encoder wheel in the motor units.
+* Each relay has a flyback diode for back EMF protection (D5, D6). These relays control the head lamp motors directly. The motors are grounded local to them on the head lamps and the power wire to the motors is switched through the relays inside the module.
+When in the resting state (headlamps completely off), the NC contacts of the relays keep the motor power cable grounded through pin 12.
 
-When head lights are commanded to go down there is a delay where they stay up for a few seconds. This delay is controlled by the discharge of C2. (find out discharge path)
+* The relay coils are activated by the output pins 7 and 11 via the limit/encoder wheel in the motor units. The pins 7 and 11 connect to the limit/encoder wheels on the head lamp assembly. After going through those, the switched signal returns to the control module on pins 2 and 5. **(Update schematic to show this)**
 
-D1 is a voltage blocking diode. It is connected to A2 of the head lamp bulb relay. When the head lamps are not, on there is no ground connection and pin 8 is pulled to 12v through the relay coil. This prevents the 12v passing into the pin 8 input and leaves R14 and R4 to bias the base of Q3 properly.
+* When head lights are commanded to go down, there is a delay where they do nothing for a few seconds. This time is up to 3.5 seconds (Ref Jimi). This delay is controlled by the discharge of C2. While there is charge in C2, the PNP transistor Q1 is held in the off state, unable to switch on Q4, which provides ground for the relays to bring the head lamps down.
+
+* Capacitor C2 is charged through pin 6 of the module when it is grounded (technically also transistor Q5 when switched on but it will be mostly charged when the head lamp switch is moved into the tail lamp position from the off position). This capacitor discharges through R2 and R8 when the head lamp switch is in the off position. **(I believe there is a mistake in the schematic here, I cannot see how Q1 is ever switched on, revisit)**
+
+* D1 is a voltage blocking diode. It is connected to A2 of the head lamp bulb relay. When the head lamps are not, on there is no ground connection and pin 8 is pulled to 12v through the relay coil. This prevents the 12v passing into the pin 8 input and leaves R14 and R4 to bias the base of Q3 properly.
 
 When a head lamp up request is given on pin 8, by grounding the pin through the head lamp switch on the dash cluster, the base of Q3 is pulled to ground from being held near 12v through a pull up resistor R4.
 The RC network of R15, C5 and C6 are for stability and switch debounce. (I am unsure of the function of R14 as it only comes into play when the pin 7 output is grounded. It may be for stability by adding some more bias to ground, a pull down resistor).
