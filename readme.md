@@ -1,12 +1,14 @@
-# Work in progress. Not all information is accurate
-
 # Retract control module 85964-17010
+## Reverse Engineered & Documented
 
-<img width="2000" height="1414" alt="download" src="https://github.com/user-attachments/assets/b11a10ef-68cb-43d6-aabc-3a19b8b033d3" />
-<img width="1085" height="926" alt="PCB Top" src="https://github.com/user-attachments/assets/a5387109-9186-4426-9568-327eda5a4a18" />
-<img width="1085" height="926" alt="PCB BOttom" src="https://github.com/user-attachments/assets/e8651e67-8e56-4b33-8456-a9be84d1bc47" />
-<img width="726" height="939" alt="PCB Layout" src="https://github.com/user-attachments/assets/3b029153-0159-4bb8-8012-5470c0d493a4" />
-<img width="640" height="480" alt="module" src="https://github.com/user-attachments/assets/91b1352e-1e63-438d-b16e-f90134846796" />
+<img width="533" height="400" alt="module" src="https://github.com/user-attachments/assets/91b1352e-1e63-438d-b16e-f90134846796" />
+
+## PCB and Schematic Preview
+
+<img width="500" height="353" alt="download" src="https://github.com/user-attachments/assets/b11a10ef-68cb-43d6-aabc-3a19b8b033d3" />
+<img width="542" height="463" alt="PCB Top" src="https://github.com/user-attachments/assets/a5387109-9186-4426-9568-327eda5a4a18" />
+<img width="363" height="470" alt="PCB Layout" src="https://github.com/user-attachments/assets/3b029153-0159-4bb8-8012-5470c0d493a4" />
+
 
 ## Basic Operation:
 
