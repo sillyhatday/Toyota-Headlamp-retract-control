@@ -5,7 +5,7 @@
 
 ## PCB and Schematic Preview
 
-<img width="500" height="353" alt="download" src="https://github.com/user-attachments/assets/b11a10ef-68cb-43d6-aabc-3a19b8b033d3" />
+<img width="979" height="679" alt="HeadlampSchematic" src="https://github.com/user-attachments/assets/b9aa88a7-ff77-4d05-b972-04a0438cb078" />
 <img width="542" height="463" alt="PCB Top" src="https://github.com/user-attachments/assets/a5387109-9186-4426-9568-327eda5a4a18" />
 <img width="363" height="470" alt="PCB Layout" src="https://github.com/user-attachments/assets/3b029153-0159-4bb8-8012-5470c0d493a4" />
 
